@@ -35,3 +35,12 @@ function bfs(root_node, target) {
     }
   }
 } 
+
+// this assumes you have a node class with a visited instance var like below 
+
+class Node {
+  constructor(value) {
+    this.value = value; 
+    this.visited = false; 
+  }
+}
