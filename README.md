@@ -30,3 +30,6 @@ NaN
 ""
 document.all
 
+naturally var y = 1, x = y = typeof x if "undefined" in a string
+
+
