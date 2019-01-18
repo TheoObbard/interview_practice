@@ -44,3 +44,7 @@ class Node {
     this.visited = false; 
   }
 }
+
+function test_inline(arr) {
+  if (arr.length > 2) return true;
+}
