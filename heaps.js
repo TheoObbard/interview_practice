@@ -3,14 +3,13 @@
 // Input:
 
 // [
-//   [6, 7],
-//   [],
+//   [4, 6, 7],
+//   [1, 2, 4],
 //   [6, 8, 9]
 // ]
 
 function sortSortedArrays(arr) {
   let heap = new BinaryHeap();
-  let numArrays = arr.length;
   let ans = []
 
   for (let i = 0; i < arr.length; i++) {
@@ -18,7 +17,6 @@ function sortSortedArrays(arr) {
     let node = new Node(i, val);
     heap.insert(node)
   }
-
 
   while (heap.length > 0) {
     let getNode = heap.extract();
@@ -30,5 +28,7 @@ function sortSortedArrays(arr) {
       heap.insert(node)
     }
   }
+
+  return ans;
 };
 
