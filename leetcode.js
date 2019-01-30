@@ -38,21 +38,21 @@ const totalFruit = function (tree) {
 
 // brute forcey VV
 
-const totalFruit = function (tree) {
-  let max = 0; 
-  for (let i = 0; i < tree.length - 1; i++) {
-    for (let j = i+1; j < tree.length; j++) {
-      let section = tree.slice(i, j);
-      let unique = [...new Set(section)];
-      if (unique.length <= 2) {
-        if (section.length > max) {
-          max = section.length;
-        }
-      }
-    }
-  }
-  return max;
-}
+// const totalFruit = function (tree) {
+//   let max = 0; 
+//   for (let i = 0; i < tree.length - 1; i++) {
+//     for (let j = i+1; j < tree.length; j++) {
+//       let section = tree.slice(i, j + 1);
+//       let unique = [...new Set(section)];
+//       if (unique.length <= 2) {
+//         if (section.length > max) {
+//           max = section.length;
+//         }
+//       }
+//     }
+//   }
+//   return max;
+// }
 
-test = [1, 2, 1]
+test = [3, 3, 3, 1, 2, 1, 1, 2, 3, 3, 4]
 console.log(totalFruit(test));
