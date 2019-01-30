@@ -18,6 +18,7 @@ const totalFruit = function (tree) {
   for (let i = 0; i < tree.length; i++) {
     if (currSet[tree[i]]) {
       currCount += 1;
+      if (finalCount < currCount) finalCount = currCount;
     } else {
       if (currDistinctNums < 2) {
         currDistinctNums += 1;
@@ -34,3 +35,24 @@ const totalFruit = function (tree) {
   }
   return finalCount;
 };
+
+// brute forcey VV
+
+const totalFruit = function (tree) {
+  let max = 0; 
+  for (let i = 0; i < tree.length - 1; i++) {
+    for (let j = i+1; j < tree.length; j++) {
+      let section = tree.slice(i, j);
+      let unique = [...new Set(section)];
+      if (unique.length <= 2) {
+        if (section.length > max) {
+          max = section.length;
+        }
+      }
+    }
+  }
+  return max;
+}
+
+test = [1, 2, 1]
+console.log(totalFruit(test));
