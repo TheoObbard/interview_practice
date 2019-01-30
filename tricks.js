@@ -29,3 +29,13 @@ console.log(max([1, 2, 3, 4, 5, 90, 6]));
 
 // and again, it's done in a func here but you can just reduce, pass it a and b, and 
 // then return Math.max of a and b in a callback. 
+
+function min(arr) {
+  return arr.reduce((a, b) => {
+    return Math.min(a, b)
+  })
+}
+
+console.log(min([1, 2, 3, 4, 5, 90, 6]));
+
+// side note, min works too. Derp. 
