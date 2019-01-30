@@ -1,0 +1,1 @@
+// Tricks to simplify things JS doesn't make super easy
