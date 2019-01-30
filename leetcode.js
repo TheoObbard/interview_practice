@@ -11,5 +11,26 @@
 // What is the total amount of fruit you can collect with this procedure ?
 
 const totalFruit = function (tree) {
-  
+  let finalCount = 0; 
+  let currSet = {};
+  let currCount = 0; 
+  let currDistinctNums = 0;
+  for (let i = 0; i < tree.length; i++) {
+    if (currSet[tree[i]]) {
+      currCount += 1;
+    } else {
+      if (currDistinctNums < 2) {
+        currDistinctNums += 1;
+        currSet[tree[i]] = true;
+        currCount += 1;
+      } else {
+        if (finalCount < currCount) {
+          finalCount = currCount;
+        }
+        currCount = 0;
+        currSet = {};
+      }
+    }
+  }
+  return finalCount;
 };
