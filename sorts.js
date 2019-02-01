@@ -145,7 +145,15 @@ function quicksort(arr) {
 
 console.log(quicksort(test));
 
+function bubbleSort(arr) {
+  arr.forEach(times => {
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        [arr[i], arr[i+1]] = [arr[i+1], arr[i]]
+      }      
+    }
+  })
+  return arr;
+}
 
-// function bubbleSort(arr) {
-
-// }
+console.log(bubbleSort(test));
