@@ -132,12 +132,19 @@ function merge(left, right) {
 let test = [9, 1, 8, 2, 7, 3, 6, 4, 5]
 console.log(mergeSort(test));
 
-// console.log(test.shift());
+function quicksort(arr) {
+  if (arr.length < 2) {
+    return arr;
+  }
 
+  let mid = arr[Math.floor(arr.length/2)];
+  let right = arr.filter((el) => mid < el)
+  let left = arr.filter((el) => mid > el)
+  return quicksort(left).concat([mid]).concat(quicksort(right));
+};
 
-// function quicksort(arr) {
+console.log(quicksort(test));
 
-// };
 
 // function bubbleSort(arr) {
 
