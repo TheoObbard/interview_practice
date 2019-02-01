@@ -114,22 +114,25 @@ function mergeSort(arr) {
 
 function merge(left, right) {
   let ans = [];
-  while (left.length > 0 || right.length > 0) {
+  while (left.length > 0 && right.length > 0) {
     if (left[0] > right[0]) {
       ans.push(right.shift());
     } else if (left[0] < right[0]) {
       ans.push(left.shift());
     } 
-
-    if (left.length === 0) {
-      ans.concat(right);
-    } else if (right.length === 0) {
-      ans.concat(left);
-    }
+  }
+  if (left.length === 0) {
+    ans = ans.concat(right);
+  } else if (right.length === 0) {
+    ans = ans.concat(left);
   }
   return ans;
 };
 
+let test = [9, 1, 8, 2, 7, 3, 6, 4, 5]
+console.log(mergeSort(test));
+
+// console.log(test.shift());
 
 
 // function quicksort(arr) {
