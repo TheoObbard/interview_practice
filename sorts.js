@@ -41,16 +41,6 @@
 
 // // console.log(quicksort(test));
 
-
-
-// // function mergeSort(arr) {
-
-// // };
-
-// // function merge(left, right) {
-
-// // };
-
 // function post(node) {
 //   if (node.null) {
 //     return [];
@@ -92,19 +82,60 @@
 
 // console.log(longestPalindrome('abacdabba'));
 
-function bfs(node, target) {
-  let queue = [node];
-  while (queue.length > 0) {
-    let current = queue.shift();
-    if (current.value === target) {
-      return current;
-    }
-    current.visited = true;
-    current.outEdges.forEach(node => {
-      if (!node.visited) {
-        queue.push(node);
-      }
-    })
+// function bfs(node, target) {
+//   let queue = [node];
+//   while (queue.length > 0) {
+//     let current = queue.shift();
+//     if (current.value === target) {
+//       return current;
+//     }
+//     current.visited = true;
+//     current.outEdges.forEach(node => {
+//       if (!node.visited) {
+//         queue.push(node);
+//       }
+//     })
+//   }
+//   return null;
+// }
+
+
+
+function mergeSort(arr) {
+  if (arr.length < 2) {
+    return arr;
   }
-  return null;
-}
+
+  let midIdx = Math.floor(arr.length/2)
+  let left = mergeSort(arr.slice(0, midIdx))
+  let right = mergeSort(arr.slice(midIdx))
+  return merge(left, right)
+};
+
+function merge(left, right) {
+  let ans = [];
+  while (left.length > 0 || right.length > 0) {
+    if (left[0] > right[0]) {
+      ans.push(right.shift());
+    } else if (left[0] < right[0]) {
+      ans.push(left.shift());
+    } 
+
+    if (left.length === 0) {
+      ans.concat(right);
+    } else if (right.length === 0) {
+      ans.concat(left);
+    }
+  }
+  return ans;
+};
+
+
+
+// function quicksort(arr) {
+
+// };
+
+// function bubbleSort(arr) {
+
+// }
