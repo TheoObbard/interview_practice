@@ -25,4 +25,4 @@ function build(paren, num) {
   return ans;
 }
 
-console.log(possibleParens(3));
+console.log(possibleParens(5));

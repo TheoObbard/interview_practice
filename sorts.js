@@ -99,61 +99,60 @@
 //   return null;
 // }
 
+// function mergeSort(arr) {
+//   if (arr.length < 2) {
+//     return arr;
+//   }
 
+//   let midIdx = Math.floor(arr.length/2)
+//   let left = mergeSort(arr.slice(0, midIdx))
+//   let right = mergeSort(arr.slice(midIdx))
+//   return merge(left, right)
+// };
 
-function mergeSort(arr) {
-  if (arr.length < 2) {
-    return arr;
-  }
+// function merge(left, right) {
+//   let ans = [];
+//   while (left.length > 0 && right.length > 0) {
+//     if (left[0] > right[0]) {
+//       ans.push(right.shift());
+//     } else if (left[0] < right[0]) {
+//       ans.push(left.shift());
+//     } 
+//   }
+//   if (left.length === 0) {
+//     ans = ans.concat(right);
+//   } else if (right.length === 0) {
+//     ans = ans.concat(left);
+//   }
+//   return ans;
+// };
 
-  let midIdx = Math.floor(arr.length/2)
-  let left = mergeSort(arr.slice(0, midIdx))
-  let right = mergeSort(arr.slice(midIdx))
-  return merge(left, right)
-};
+// let test = [9, 1, 8, 2, 7, 3, 6, 4, 5]
+// console.log(mergeSort(test));
 
-function merge(left, right) {
-  let ans = [];
-  while (left.length > 0 && right.length > 0) {
-    if (left[0] > right[0]) {
-      ans.push(right.shift());
-    } else if (left[0] < right[0]) {
-      ans.push(left.shift());
-    } 
-  }
-  if (left.length === 0) {
-    ans = ans.concat(right);
-  } else if (right.length === 0) {
-    ans = ans.concat(left);
-  }
-  return ans;
-};
+// function quicksort(arr) {
+//   if (arr.length < 2) {
+//     return arr;
+//   }
 
-let test = [9, 1, 8, 2, 7, 3, 6, 4, 5]
-console.log(mergeSort(test));
+//   let mid = arr[Math.floor(arr.length/2)];
+//   let right = arr.filter((el) => mid < el)
+//   let left = arr.filter((el) => mid > el)
+//   return quicksort(left).concat([mid]).concat(quicksort(right));
+// };
 
-function quicksort(arr) {
-  if (arr.length < 2) {
-    return arr;
-  }
+// console.log(quicksort(test));
 
-  let mid = arr[Math.floor(arr.length/2)];
-  let right = arr.filter((el) => mid < el)
-  let left = arr.filter((el) => mid > el)
-  return quicksort(left).concat([mid]).concat(quicksort(right));
-};
+// function bubbleSort(arr) {
+//   arr.forEach(times => {
+//     for (let i = 0; i < arr.length - 1; i++) {
+//       if (arr[i] > arr[i + 1]) {
+//         [arr[i], arr[i+1]] = [arr[i+1], arr[i]]
+//       }      
+//     }
+//   })
+//   return arr;
+// }
 
-console.log(quicksort(test));
+// console.log(bubbleSort(test));
 
-function bubbleSort(arr) {
-  arr.forEach(times => {
-    for (let i = 0; i < arr.length - 1; i++) {
-      if (arr[i] > arr[i + 1]) {
-        [arr[i], arr[i+1]] = [arr[i+1], arr[i]]
-      }      
-    }
-  })
-  return arr;
-}
-
-console.log(bubbleSort(test));
