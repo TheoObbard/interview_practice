@@ -38,3 +38,10 @@ var spiralOrder = function (matrix) {
 
   return ans.concat(spiralOrder(matrix))
 };
+
+let test = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+]
+
