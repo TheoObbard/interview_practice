@@ -1,6 +1,10 @@
 var spiralOrder = function (matrix) {
-
   let ans = [];
+
+  if (matrix.length < 1) {
+    return ans;
+  }
+
   matrix[0].forEach(el => {
     ans.push(el);
   });
@@ -12,7 +16,7 @@ var spiralOrder = function (matrix) {
 
   matrix.forEach(arr => {
     let el = arr.pop();
-    ans.push(el);
+    if (el) { ans.push(el) }
   });
 
   if (matrix.length === 0) {
@@ -33,10 +37,10 @@ var spiralOrder = function (matrix) {
   for (let i = matrix.length - 1; i >= 0; i--) {
     let arr = matrix[i];
     let el = arr.shift();
-    ans.push(el)
+    if (el) { ans.push(el) }
   }
 
-  return ans.concat(spiralOrder(matrix))
+  if (matrix.length > 0) return ans.concat(spiralOrder(matrix));
 };
 
 let test = [
@@ -60,3 +64,7 @@ console.log(spiralOrder(otherTest));
 
 // [1,2,3,4,8,12,11,10,9,5,6,7]
 // output should be this
+
+let dumb = [[7], [9], [6]]
+
+console.log(spiralOrder(dumb));
