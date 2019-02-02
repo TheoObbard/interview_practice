@@ -45,3 +45,18 @@ let test = [
   [7, 8, 9]
 ]
 
+console.log(spiralOrder(test));
+
+// [1,2,3,6,9,8,7,4,5]
+// output should be this
+
+let otherTest = [
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9, 10, 11, 12]
+]
+
+console.log(spiralOrder(otherTest));
+
+// [1,2,3,4,8,12,11,10,9,5,6,7]
+// output should be this
