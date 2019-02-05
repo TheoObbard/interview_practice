@@ -10,13 +10,6 @@ var longestPalindrome = function (s) {
     while (arr[last + 1] === arr[i]) {
       last += 1;
     }
-    // if (arr[i] === arr[i+1]) {
-    //   first = i;
-    //   last = i+1;
-    // } else {
-    //   first = i;
-    //   last = i;
-    // }
     while (arr[first] === arr[last]) {
       let test = arr.slice(first, last + 1).join('')
       if (test.length >= ans.length) {
