@@ -9,7 +9,6 @@ class Timer {
     this.time = 0;
     this.counting = false;
     this.interval; 
-
   }
 
   countUp() { 
