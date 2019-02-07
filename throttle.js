@@ -1,7 +1,7 @@
 function throttle(func, timeLimit) {
   let lastFunc;
   let lastRan;
-  return function() {
+  return function() {    
     const context = this;
     const args = arguments;
     if (!lastRan) {
@@ -14,12 +14,14 @@ function throttle(func, timeLimit) {
           func.apply(context, args);
           lastRan = Date.now();
         }
-      }, timeLimit - Date.now() - lastRan);
+      }, timeLimit - (Date.now() - lastRan));
     }
   }
 }
 
-let colorChange = throttle(function() {
-  // get element of button and change it's color randomly
+let colorChange = throttle(function() {  
+  let colors = ['orange', 'red', 'blue', 'green', 'yellow'];
+  let btn = document.getElementsByClassName('throttle')
+  let num = Math.floor((10 * (Math.random(0))) % colors.length)
+  btn[0].style.backgroundColor = `${colors[num]}`
 }, 2000)
-  // ever 2 seconds
