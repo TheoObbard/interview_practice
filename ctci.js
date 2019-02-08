@@ -76,3 +76,51 @@ class Animal {
 // class Dog extends Animal {
   
 // }
+
+// -------------------
+
+// sort a stack so the smallest items are on top
+// you can use another stack 
+// you can not use another data structure
+// stack supports: push, pop, peek, and isEmpty
+
+// [4, 2, 3, 1] ==> [4, 3, 2, 1]
+
+// check if stack is <= 1 el 
+// [9, 8, 5, 3, 2]
+// [2, 3, 5, 8, 9]
+// var = 5 
+
+function sortAStack(stack) {
+  let helperStack = [];
+  let holder;
+  let sorted = false; 
+  while (!sorted) {
+    while (!stack.isEmpty()) {
+      let temp = stack.pop();
+      if (!holder) {
+        if (temp < stack.peek()) {
+          helperStack.push(temp);
+        } else {
+          holder = temp;
+        }
+      } else {
+        if (temp < holder) {
+          helperStack.push(temp);
+        } else {
+          helperStack.push(holder);
+          holder = temp;
+        }
+      }
+    }
+    sorted = true;
+    while (!helperStack.isEmpty()) {
+      let next = helperStack.pop()
+      if (!stack.isEmpty && stack.peek() < next) {
+        sorted = false;
+      }
+      stack.push(next);
+    }
+  }
+  return stack;
+}
