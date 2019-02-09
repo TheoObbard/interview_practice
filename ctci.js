@@ -124,3 +124,43 @@ function sortAStack(stack) {
   }
   return stack;
 }
+
+// implementing w array methods to test 
+
+function sortAStackChanged(stack) {
+  let helperStack = [];
+  let holder;
+  let sorted = false;
+  while (!sorted) {
+    while (stack.length > 0) {
+      let temp = stack.pop();
+      if (!holder) {
+        if (temp < stack[stack.length - 1]) {
+          helperStack.push(temp);
+        } else {
+          holder = temp;
+        }
+      } else {
+        if (temp < holder) {
+          helperStack.push(temp);
+        } else {
+          helperStack.push(holder);
+          holder = temp;
+        }
+      }
+    }
+    sorted = true;
+    stack.push(holder);
+    while (helperStack.length > 0) {
+      let next = helperStack.pop()
+      if (stack.length > 0 && stack[stack.length - 1] < next) {
+        sorted = false;
+      }
+      stack.push(next);
+    }
+  }
+  return stack;
+}
+
+let test = [9, 8, 6, 5, 4, 3, 10, 1]
+console.log(sortAStackChanged(test));
