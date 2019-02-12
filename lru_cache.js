@@ -18,10 +18,7 @@ class LRUCache {
   get(key) {
     let resp = this.hash[key];
     
-    let node = this.head;
-    while (node.value !== key) {
-      node = node.next;
-    }
+    let node = this.hash[key]
     if (node.prev) {
       node.prev.next = node.next;
     }
@@ -37,7 +34,7 @@ class LRUCache {
 
   put(key, val) {
     this.checkCapacityAndDrop();
-    let node = new ListNode(key);
+    let node = new ListNode(val);
     if (this.length === 0) {
       this.head = node;
     } else if (this.length === 1) {
@@ -49,7 +46,7 @@ class LRUCache {
       this.tail = node;
     }
     this.length += 1;
-    this.hash[key] = val;
+    this.hash[key] = node;
   }
 
   checkCapacityAndDrop() {
