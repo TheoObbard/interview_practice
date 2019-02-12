@@ -25,3 +25,25 @@ Array.prototype.first = function() {
 console.log(myArr.first());
 
 // step 4) OOOOOOH WAAAAT IT WOOOORKS
+
+// another prototypal inheritance example 
+
+function Car(name) {
+  this.name = name;
+}
+
+Car.prototype.start = function() {
+  console.log(this.name + ' is starting, vroooom')
+}
+
+function Tesla(name) {
+  Car.call(this, name);
+}
+
+Tesla.prototype = Object.create(Car.prototype);
+
+let stella = new Car('stella');
+let mick = new Tesla('mick');
+
+console.log(stella.start())
+mick.start();
