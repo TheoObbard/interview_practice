@@ -14,3 +14,7 @@ console.log(checkMatchingStrings);
 // Set { 1, 'hi, 'j'}
 
 console.log(new Set(strArr));
+
+// runtime: Sets check for inclusion when they insert so it's O(n)
+// deletion is also O(n) :( 
+// an INT set is a set that only allows ints. Duh. 
