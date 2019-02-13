@@ -39,3 +39,14 @@ function min(arr) {
 console.log(min([1, 2, 3, 4, 5, 90, 6]));
 
 // side note, min works too. Derp. 
+
+// Sort an arr, not really a trick but impt to remember. 
+
+let arr = [5, 3, 4, 2, 1]
+console.log(arr.sort((a, b) => a - b ))
+
+// sort tuples by first el 
+
+let tuples = [[2, 3], [1, 4], [3, 6]]
+console.log(tuples.sort((a, b) => a[0] - b[0] ))
+
