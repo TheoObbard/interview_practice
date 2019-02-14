@@ -12,8 +12,8 @@ class Counter {
     this.counter = 0;
     this.upBtn = this.createBtn('up');
     this.downBtn = this.createBtn('down');
-    this.upBtn.onclick = this.increment;
-    this.downBtn.onclick = this.decrement;
+    this.upBtn.onclick = this.increment.bind(this);
+    this.downBtn.onclick = this.decrement.bind(this);
     this.draw();
   }
 
