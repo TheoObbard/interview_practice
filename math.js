@@ -6,33 +6,33 @@
 // they appear.
 
 
-function find24 (arr) {
-  let first = arr.shift();
+// function find24 (arr) {
+//   let first = arr.shift();
   
-  if (first + helper(arr, (24 - first))) {
-    return true;
-  } else if (first - helper(arr, (24 + first))) {
-    return true;
-  } else if (helper(arr, ()))
-}
+//   if (first + helper(arr, (24 - first))) {
+//     return true;
+//   } else if (first - helper(arr, (24 + first))) {
+//     return true;
+//   } else if (helper(arr, ()))
+// }
 
-function helper(arr, target) {
-  if (arr.length > 2) {
-    return find24(arr);
-  } 
+// function helper(arr, target) {
+//   if (arr.length > 2) {
+//     return find24(arr);
+//   } 
 
-  if (Math.sum(arr[0], arr[1]) === target) {
-    return true;
-  } else if (arr[0] - arr[1] === target) {
-    return true;
-  } else if (arr[1] - arr[0] === target) {
-    return true;
-  } else if (arr[0] * arr[1] === target) {
-    return true;
-  } else if (arr[0] / arr[1] === target) {
-    return true;
-  } else if (arr[1] / arr[0] === target) {
-    return true;
-  }
-  return false;
-}
+//   if (Math.sum(arr[0], arr[1]) === target) {
+//     return true;
+//   } else if (arr[0] - arr[1] === target) {
+//     return true;
+//   } else if (arr[1] - arr[0] === target) {
+//     return true;
+//   } else if (arr[0] * arr[1] === target) {
+//     return true;
+//   } else if (arr[0] / arr[1] === target) {
+//     return true;
+//   } else if (arr[1] / arr[0] === target) {
+//     return true;
+//   }
+//   return false;
+// }

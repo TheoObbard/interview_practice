@@ -1,20 +1,30 @@
 function throttle(func, timeLimit) {
-  let lastFunc;
-  let lastRan;
+  // let lastFunc;
+  // let lastRan;
+  let queue = [];
   return function() {    
+    let lastRan = queue.shift();
     const context = this;
     const args = arguments;
     if (!lastRan) {
       func.apply(context, args);
       lastRan = Date.now();
     } else {
-      clearTimeout(lastFunc);
-      lastFunc = setTimeout(function() {
-        if ((Date.now() - lastRan) >= timeLimit) {
-          func.apply(context, args);
-          lastRan = Date.now();
-        }
-      }, timeLimit - (Date.now() - lastRan));
+      // clearTimeout(lastFunc);
+      // let lastFunc = setTimeout(function() {
+      //   if ((Date.now() - lastRan) >= timeLimit) {
+      //     func.apply(context, args);
+      //     lastRan = Date.now();
+      //   }
+      // }, timeLimit - (Date.now() - lastRan));
+      if ((Date.now() - lastRan) >= timeLimit) {
+        func.apply(context, args)
+        lastRan = Date.now()
+      } else {
+        setTimeout(() => {
+          queue.push(Date.now());
+        }, timeLimit)
+      }
     }
   }
 }
