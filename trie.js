@@ -20,12 +20,17 @@ class Trie {
     current.endOfWord = true;
   }
 
-  prefixCheck(str) {
-    
-  }
-
-  wholeCheck(str) {
-
+  wordSearch(str) {
+    let current = this.root;
+    for (let i = 0; i < str.length; i++) {
+      let chr = str[i];
+      if (!current.children[chr]) {
+        return false;
+      } else {
+        current = current.children[chr];
+      }
+    }
+    return current.endOfWord; // tells you if its a word or not
   }
 
   deleteWord(word) {
