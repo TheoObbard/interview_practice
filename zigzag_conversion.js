@@ -1,10 +1,15 @@
 function zigzagConversion(str, len) {
-  let mtx = [[null, null, null, null, null, null, null], [null, null, null, null, null, null, null], [null, null, null, null, null, null, null], [null, null, null, null, null, null, null]];
-  // let count = 0;
-  // while (count < len) {
-  //   mtx.push(new Array(Math.floor(len/2)));
-  //   count++;
-  // }
+  let mtx = [];
+  let count = 0;
+  while (count < len) {
+    mtx.push([]);
+    let uhg = 0;
+    while (uhg < Math.floor(str.length/2)) {
+      mtx[count].push(null);
+      uhg += 1;
+    }
+    count++;
+  }
   let col = 0;
   let up = false;
   let word = str.split('');
