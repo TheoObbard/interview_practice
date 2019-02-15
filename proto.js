@@ -47,3 +47,34 @@ let mick = new Tesla('mick');
 
 console.log(stella.start())
 mick.start();
+
+
+// goal, lets make an arr.last which returns the last el of an arr. 
+
+Array.prototype.last = function() {
+  let arr = this;
+  return arr[arr.length - 1];
+}
+
+let test = [1, 4, 3, 2];
+console.log(test.last())
+
+
+let obj = {
+  0 : 'hello',
+  4 : 'world',
+  'this' : 'is odd'
+}
+
+Object.prototype.length = function() {
+  let hash = this;
+  let counter = 0;
+  for (key in hash) {
+    counter += 1;
+  }
+  return counter - 1;
+  // why is this neccesary? 
+}
+
+console.log(obj.length())
+console.log(obj['this'])
