@@ -43,11 +43,29 @@ class Hash {
   includes(key) {
     let hashedKey = key.hash();
     let correctBucked = hashedKey % this.capacity;
-    return this.store[correctBucked][0];
+    return this.store[correctBucked].next.val;
+    // just gonna return the value of the first node after sentinal 
   }
 
   resize() {
     this.capacity *= 2;
+    let newStore = [];
+    for (let i = 0; i < this.capacity; i++) {
+      newStore.push(new LinkedListNode());
+    }
+
+    this.store.forEach(LL => {
+      let head = LL; 
+      while (head) {
+        let correctBucket = head.key.hash() % this.capacity;
+        let newHead = newStore[correctBucket];
+        while (newHead.next) {
+          newHead = newHead.next;
+        }
+        newHead.next = new LinkedListNode(head.key, head.val);
+        head = head.next;
+      }
+    })
     // iterate through the store and re-hash every element so that 
     // they are in their new correct buckets 
   }
