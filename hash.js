@@ -1,11 +1,19 @@
-// implement a hash table using only arrays
+// implement a hash table using only arrays and LLs
+
+class LinkedListNode {
+  constructor(key, val) {
+    this.key = key;
+    this.val = val;
+    this.next = null;
+  }
+}
 
 class Hash {
   constructor(capacity = 8) {
     this.capacity = capacity;
     this.store = new Array();
     for (let i = 0; i < this.capacity; i++) {
-      this.store.push([]);
+      this.store.push(new LinkedListNode());
     }
     this.length = 0;
   }
@@ -17,8 +25,19 @@ class Hash {
     }
 
     let hashedKey = key.hash();
-    let correctBucked = hashedKey % this.capacity;
-    this.store[correctBucked].push(val);
+    let correctBucket = hashedKey % this.capacity;
+    let head = this.store[correctBucket];
+    let inserted = false;
+    while (head) {
+      if (head.key === key) {
+        head.val = val;
+        inserted = true;
+      }
+      head = head.next;
+    }
+    if (!inserted) {
+      head.next = new LinkedListNode(key, val);
+    }
   }
 
   includes(key) {
