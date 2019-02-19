@@ -8,7 +8,7 @@ function createPost() {
   inp.value = '';
   let item = document.createElement('LI');
   item.id = 'list_item';
-  item.innerHTML = content;
+  item.innerHTML = filter(content);
   let form = commentForm();
   item.appendChild(form);
   let list = document.querySelector('UL');
@@ -49,4 +49,20 @@ function addComment() {
   let item = document.createElement('LI');
   item.innerHTML = 'test'
   list.appendChild(item);
+}
+
+function filter(content) {
+  // & lt; and & gt;
+  let arr = content.split('');
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === '<') {
+      arr[i] = '&lt;'
+    }
+    if (arr[i] === '>') {
+      arr[i] = '&gt;'
+    }
+  }
+
+  console.log(content)
+  return arr.join('');
 }
