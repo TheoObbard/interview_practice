@@ -4,7 +4,16 @@
 // step 4) display counter and buttons on DOM 
 
 document.addEventListener('DOMContentLoaded', () => {
-  new Counter();
+  // new Counter();
+  let btn1 = document.createElement('button');
+  btn1.innerHTML = 'hello'
+  btn1.className = 'test'
+  let btn2 = document.createElement('button');
+  btn2.innerHTML = 'hello'
+  btn2.className = 'test'
+  let body = document.getElementsByTagName('BODY')[0];
+  body.appendChild(btn1)
+  console.log(btn1.className === btn2.className);
 })
 
 class Counter {
