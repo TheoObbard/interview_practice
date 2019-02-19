@@ -22,7 +22,7 @@ Array.prototype.first = function() {
   return arr[0]
 }
 
-console.log(myArr.first());
+// console.log(myArr.first());
 
 // step 4) OOOOOOH WAAAAT IT WOOOORKS
 
@@ -33,7 +33,7 @@ function Car(name) {
 }
 
 Car.prototype.start = function() {
-  console.log(this.name + ' is starting, vroooom')
+  // console.log(this.name + ' is starting, vroooom')
 }
 
 function Tesla(name) {
@@ -45,7 +45,7 @@ Tesla.prototype = Object.create(Car.prototype);
 let stella = new Car('stella');
 let mick = new Tesla('mick');
 
-console.log(stella.start())
+// console.log(stella.start())
 mick.start();
 
 
@@ -57,7 +57,7 @@ Array.prototype.last = function() {
 }
 
 let test = [1, 4, 3, 2];
-console.log(test.last())
+// console.log(test.last())
 
 
 let obj = {
@@ -76,5 +76,29 @@ Object.prototype.length = function() {
   // why is this neccesary? 
 }
 
-console.log(obj.length())
-console.log(obj['this'])
+// console.log(obj.length())
+// console.log(obj['this'])
+
+
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+Person.prototype.sayHello = function() {
+  return 'hello, my name is ' + this.name;
+}
+
+function Employee(name, age, jobTitle) {
+  Person.call(this, name, age);
+  this.jobTitle = jobTitle;
+}
+
+Employee.prototype = Object.create(Person.prototype);
+
+let theo = new Person('Theo', 24);
+console.log(theo.sayHello())
+let tom = new Employee('Tom', 26, 'administrator')
+
+console.log(tom.sayHello())
+console.log(tom)
