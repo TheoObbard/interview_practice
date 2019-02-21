@@ -32,4 +32,22 @@ document.all
 
 naturally var y = 1, x = y = typeof x if "undefined" in a string
 
+# shortcuts:
 
+unique array:
+
+`function unique(arr) {
+  return [...new Set(arr)];
+}`
+
+max from arr: 
+
+`return arr.reduce((a, b) => {
+    return Math.max(a, b)
+ })`
+
+min from arr:
+
+`return arr.reduce((a, b) => {
+    return Math.min(a, b)
+ })`
