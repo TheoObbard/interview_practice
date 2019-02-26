@@ -29,3 +29,21 @@ var findDuplicates = function (nums) {
   result = [...new Set(result)];
   return result;
 };
+
+// nth Fib 
+
+// [0, 1, 1, 2, 3, 5, 8, 13]
+
+function nthFib(n) {
+  if (n === 0) {
+    return 0;
+  } else if (n === 1) {
+    return 1;
+  }
+
+  return nthFib(n-1) + nthFib(n-2);
+}
+
+// 4th fib should be 3
+
+console.log(nthFib(40))
