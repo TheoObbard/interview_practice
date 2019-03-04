@@ -59,3 +59,8 @@ min from arr:
  sorting tuples:
  
 `tuples.sort((a, b) => a[0] - b[0] )`
+
+ # Working with Dates: 
+ 
+ to get a specified date:
+ `new Date(2018-01-01)`
