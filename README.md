@@ -64,3 +64,6 @@ min from arr:
  
  to get a specified date:
  `new Date(2018-01-01)`
+
+ to get current date: 
+`Date.now()`
