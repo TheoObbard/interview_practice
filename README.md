@@ -72,3 +72,6 @@ min from arr:
 
 shortcut int or arr to string (works in a pinch when you can't think of toString()):
 `arr + ""`
+
+string to integer
+`parseInt(string)`
