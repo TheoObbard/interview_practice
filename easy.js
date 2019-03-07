@@ -21,7 +21,7 @@ var reverse = function(x) {
     return newNum;
 };
 
-console.log(reverse(-321));
+// console.log(reverse(-321));
 
 
 var isPalindrome = function(x) {
@@ -38,9 +38,7 @@ var isPalindrome = function(x) {
 //important node: calling .reverse() will actually reverse the arr not just the new variable
 
 
-console.log(isPalindrome(-121));
-
-
+// console.log(isPalindrome(-121));
 
 var lengthOfLastWord = function(s) {
     let words = s.split(' ');
