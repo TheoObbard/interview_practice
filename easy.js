@@ -22,3 +22,20 @@ var reverse = function(x) {
 };
 
 console.log(reverse(-321));
+
+
+var isPalindrome = function(x) {
+    let str = x + "";
+    let arr = str.split('');
+    let backward = arr.reverse().join('');
+    let forward = arr.reverse().join('')
+    if (forward === backward) {
+        return true;
+    }
+    return false;
+};
+
+//important node: calling .reverse() will actually reverse the arr not just the new variable
+
+
+console.log(isPalindrome(-121));
