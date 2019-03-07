@@ -39,3 +39,21 @@ var isPalindrome = function(x) {
 
 
 console.log(isPalindrome(-121));
+
+
+
+var lengthOfLastWord = function(s) {
+    let words = s.split(' ');
+    let ansArr = [];
+    words.forEach(word => {
+      if (word.length > 0) {
+        ansArr.push(word);
+      }
+    })
+    let last = ansArr[ansArr.length - 1];
+    let arrOfLast = last.split('');
+    return arrOfLast.length;
+};
+
+console.log(lengthOfLastWord('a '))
+
